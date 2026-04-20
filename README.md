@@ -1,58 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Sistema de Fornecedores
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema CRUD completo para gerenciamento de fornecedores, desenvolvido com Laravel e PostgreSQL, com foco em boas práticas, validação de dados e experiência do usuário.
 
-## About Laravel
+Funcionalidades:
+- Cadastro de fornecedores
+- Listagem de fornecedores
+- Edição de dados
+- Exclusão de registros
+- Validação de CNPJ e telefone
+- Relatório com filtro por nome
+- Exportação de relatório em PDF
+- Interface com Bootstrap
+- Mensagens de feedback ao usuário
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Tecnologias Utilizadas:
+- PHP 8+
+- Laravel
+- PostgreSQL
+- Bootstrap
+- DomPDF
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Como Instalar o Projeto:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1 - Clone o repositório:
+git clone https://github.com/joaovitorm7/sistema-fornecedores.git
 
-## Learning Laravel
+2 - Acesse a pasta do projeto:
+cd sistema-fornecedores
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3 - Instale as dependências:
+composer install
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4 - Crie o arquivo .env:
+cp .env.example .env
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+5 - Configure o banco de dados no .env:
 
-## Agentic Development
+Exemplo:
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=seu_banco
+DB_USERNAME=postgres
+DB_PASSWORD=sua_senha
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+6 - Gere a chave da aplicação:
+php artisan key:generate
 
-```bash
-composer require laravel/boost --dev
+7 - Execute as migrations:
+php artisan migrate
 
-php artisan boost:install
-```
+8 - Como rodar o projeto:
+php artisan serve
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Depois acesse no navegador:
 
-## Contributing
+http://127.0.0.1:8000
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+9 - Relatório
 
-## Code of Conduct
+Acesse:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+/relatorio/fornecedores
 
-## Security Vulnerabilities
+Funcionalidades:
+- Filtro por nome
+- Contagem total
+- Exportação em PDF
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+10- Exportação PDF:
 
-## License
+No relatório, clique em:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Exportar PDF:
+    - O sistema irá gerar e baixar automaticamente o relatório.
+
+
+Observações:
+Certifique-se de que o PostgreSQL está rodando
+Verifique se as credenciais do banco estão corretas no .env
+
+Autor:
+Desenvolvido por João Vitor Maia Ribeiro
+
+Considerações:
+Este projeto foi desenvolvido com foco em aprendizado e demonstração de habilidades para oportunidades de estágio e desenvolvimento web.
