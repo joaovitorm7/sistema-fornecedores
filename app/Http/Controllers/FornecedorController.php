@@ -22,6 +22,7 @@ class FornecedorController extends Controller
 
     public function store(Request $request)
     {
+        // Validação dos dados
         $request->validate([
             'cnpj' => ['required', 'regex:/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/'],
             'razao_social' => ['required', 'min:3'],
@@ -31,6 +32,7 @@ class FornecedorController extends Controller
             'contato.regex' => 'Celular deve estar no formato (99) 99999-9999',
         ]);
 
+        // Crio o Fornecedor e envio uma mensagem de sucesso para a view
         \App\Models\Fornecedor::create($request->all());
 
         return redirect()
@@ -41,6 +43,7 @@ class FornecedorController extends Controller
 
     public function edit(string $id)
     {
+        // Busco fornecedor por ID ou retorna falha se não encontrar
         $fornecedor = \App\Models\Fornecedor::findOrFail($id);
 
         return view('fornecedores.edit', compact('fornecedor'));
@@ -54,6 +57,7 @@ class FornecedorController extends Controller
             'contato' => ['required', 'regex:/^\(\d{2}\)\s?\d{4,5}-\d{4}$/'],
         ]);
 
+        // Atualizo o registro e retorno uma mensagem de sucesso
         $fornecedor = \App\Models\Fornecedor::findOrFail($id);
 
         $fornecedor->update($request->all());
@@ -65,6 +69,7 @@ class FornecedorController extends Controller
 
     public function destroy(string $id)
     {
+        // Busco por ID, excluo o registro e retorno uma mensagem de sucesso
         $fornecedor = \App\Models\Fornecedor::findOrFail($id);
 
         $fornecedor->delete();
@@ -97,6 +102,7 @@ class FornecedorController extends Controller
             $query->where('razao_social', 'like', '%' . $request->nome . '%');
         }
 
+        // Gera PDF com DomPDF e retorna para download
         $fornecedores = $query->get();
 
         $pdf = Pdf::loadView('fornecedores.pdf', compact('fornecedores'));
